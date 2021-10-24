@@ -1,0 +1,35 @@
+{
+  "name": "chameleon",
+  "version": "1.0.0",
+  "description": "Adopt a website's style.",
+  "main": "dist/chameleon.cjs.js",
+  "module": "dist/chameleon.esm.js",
+  "browser": "dist/chameleon.umd.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test.js",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "pretest": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbroms/chameleon.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cbroms/chameleon/issues"
+  },
+  "homepage": "https://github.com/cbroms/chameleon#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "rollup": "^2.58.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
