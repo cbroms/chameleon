@@ -2,13 +2,24 @@ const fs = require("fs");
 const path = require("path");
 const { Parser } = require("..");
 
-const html = fs.readFileSync(
-  path.join(__dirname, "site1", "index.html"),
-  "utf8"
-);
-const css = fs.readFileSync(
-  path.join(__dirname, "site1", "global.css"),
-  "utf8"
-);
+const getHTML = (site) => {
+  return fs.readFileSync(path.join(__dirname, site, "index.html"), "utf8");
+};
 
-const chameleon = new Parser([html], [css]);
+const getCSS = (site) => {
+  return fs.readFileSync(path.join(__dirname, site, "global.css"), "utf8");
+};
+
+const testSite1 = () => {
+  const chameleon = new Parser([getHTML("site1")], [getCSS("site1")]);
+  chameleon.extractDeclarations();
+};
+
+const testSite2 = () => {
+  const chameleon = new Parser([getHTML("site2")], [getCSS("site2")]);
+  chameleon.extractDeclarations();
+};
+
+testSite1();
+
+testSite2();
